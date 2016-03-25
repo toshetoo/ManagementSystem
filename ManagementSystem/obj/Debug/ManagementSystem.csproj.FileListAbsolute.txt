@@ -22,3 +22,11 @@ C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSys
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.pdb
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.Migrations.init.resources
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.csproj.GenerateResource.Cache
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\Antlr3.Runtime.dll
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\Newtonsoft.Json.dll
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\System.Web.Optimization.dll
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\Web.Optimization.dll
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\WebGrease.dll
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\Antlr3.Runtime.pdb
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\Newtonsoft.Json.xml
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\System.Web.Optimization.xml

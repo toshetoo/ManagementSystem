@@ -37,11 +37,12 @@ namespace ManagementSystem.Repositories
         private void Update(T item)
         {
             context.Entry(item).State = EntityState.Modified;
+            
         }
 
         public void Save(T item)
         {
-            if (item.ID>=0)
+            if (item.ID!=0)
             {
                 Update(item);
             }
@@ -49,6 +50,7 @@ namespace ManagementSystem.Repositories
             {
                 Insert(item);
             }
+            context.SaveChanges();
         }
 
         public void Delete(int id)
