@@ -163,12 +163,15 @@
     <Compile Include="Repositories\CitiesRepository.cs" />
     <Compile Include="Repositories\CountriesRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="ViewModels\CountriesVM\CountriesEditVM.cs" />
+    <Compile Include="ViewModels\CountriesVM\CountriesListVM.cs" />
     <Compile Include="ViewModels\UsersVM\UsersEditVM.cs" />
     <Compile Include="ViewModels\UsersVM\UsersListVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Countries\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,7 +184,6 @@
     <Folder Include="Filters\" />
     <Folder Include="Services\" />
     <Folder Include="Views\Cities\" />
-    <Folder Include="Views\Countries\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
