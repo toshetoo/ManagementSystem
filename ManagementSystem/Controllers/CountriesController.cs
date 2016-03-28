@@ -14,7 +14,15 @@ namespace ManagementSystem.Controllers
         public ActionResult List()
         {
             CountriesListVM model = new CountriesListVM();
+            TryUpdateModel(model);
+
             model.Countries = new CountriesRepository().GetAll();
+
+            switch (model.SortOrder)
+            {
+                case "name_asc": model.Countries = model.Countries.OrderBy(c => c.Name).ToList(); break;
+                case "name_desc": model.Countries = model.Countries.OrderByDescending(c => c.Name).ToList(); break;                
+            }
 
             return View(model);
         }

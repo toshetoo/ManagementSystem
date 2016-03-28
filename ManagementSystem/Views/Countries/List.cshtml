@@ -11,7 +11,7 @@
     <table class="table">
         <tr>
             <th>
-                Name
+                @Html.ActionLink("Name", "List", "Countries", new RouteValueDictionary { { "SortOrder", Model.SortOrder == "name_asc" ? "name_desc" : "name_asc"},{ "Search", Model.Search } },null)
             </th>
             <th></th>
         </tr>

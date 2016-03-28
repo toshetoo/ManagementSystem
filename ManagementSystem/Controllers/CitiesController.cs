@@ -14,7 +14,17 @@ namespace ManagementSystem.Controllers
         public ActionResult List()
         {
             CitiesListVM model = new CitiesListVM();
+            TryUpdateModel(model);
+
             model.Cities = new CitiesRepository().GetAll();
+
+            switch (model.SortOrder)
+            {
+                case "name_asc": model.Cities = model.Cities.OrderBy(c => c.Name).ToList(); break;
+                case "name_desc": model.Cities = model.Cities.OrderByDescending(c => c.Name).ToList(); break;
+                case "postcode_asc": model.Cities = model.Cities.OrderBy(c => c.PostCode).ToList(); break;
+                case "postcode_desc": model.Cities = model.Cities.OrderByDescending(c => c.PostCode).ToList(); break;
+            }
 
             return View(model);
         }

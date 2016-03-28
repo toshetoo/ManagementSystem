@@ -6,7 +6,7 @@ using ManagementSystem.Models;
 
 namespace ManagementSystem.ViewModels.UsersVM
 {
-    public class UsersListVM
+    public class UsersListVM:ListVM
     {
         public List<User> Users { get; set; }
     }

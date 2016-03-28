@@ -15,7 +15,20 @@ namespace ManagementSystem.Controllers
         public ActionResult List()
         {
             UsersListVM model = new UsersListVM();
+            TryUpdateModel(model);
+
             model.Users = new UsersRepository().GetAll();
+            
+
+            switch (model.SortOrder)
+            {
+                case "username_asc": model.Users = model.Users.OrderBy(u => u.Username).ToList(); break;
+                case "username_desc": model.Users = model.Users.OrderByDescending(u => u.Username).ToList(); break;
+                case "firstname_asc": model.Users = model.Users.OrderBy(u => u.FirstName).ToList(); break;
+                case "firstname_desc": model.Users = model.Users.OrderByDescending(u => u.FirstName).ToList(); break;
+                case "lastname_asc": model.Users = model.Users.OrderBy(u => u.LastName).ToList(); break;
+                case "lastname_desc": model.Users = model.Users.OrderByDescending(u => u.LastName).ToList(); break;                
+            }
 
             return View(model);
         }

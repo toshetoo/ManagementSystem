@@ -11,10 +11,10 @@
     <table class="table">
         <tr>
             <th>
-                Name
+                @Html.ActionLink("Name", "List", "Cities", new RouteValueDictionary { { "SortOrder", Model.SortOrder == "name_asc" ? "name_desc" : "name_asc" }, { "Search", Model.Search } }, null)
             </th>
             <th>
-                Post Code
+                @Html.ActionLink("Post code", "List", "Cities", new RouteValueDictionary { { "SortOrder", Model.SortOrder == "postcode_asc" ? "postcode_desc" : "postcode_asc" }, { "Search", Model.Search } }, null)
             </th>            
             <th></th>
         </tr>

@@ -6,7 +6,7 @@ using ManagementSystem.Models;
 
 namespace ManagementSystem.ViewModels.CitiesVM
 {
-    public class CitiesListVM
+    public class CitiesListVM : ListVM
     {
         public List<City> Cities { get; set; }
     }

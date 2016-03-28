@@ -6,7 +6,7 @@ using ManagementSystem.Models;
 
 namespace ManagementSystem.ViewModels.CountriesVM
 {
-    public class CountriesListVM
+    public class CountriesListVM:ListVM
     {
         public List<Country> Countries { get; set; }
     }

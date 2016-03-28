@@ -11,13 +11,13 @@
     <table class="table">
         <tr>
             <th>
-                First Name
+                @Html.ActionLink("First Name", "List", "Users", new RouteValueDictionary { { "SortOrder", Model.SortOrder == "firstname_desc" ? "firstname_asc" : "firstname_desc" }, { "Search", Model.Search } }, null)
             </th>
             <th>
-                Last Name
+                @Html.ActionLink("Last name", "List", "Users", new RouteValueDictionary { { "SortOrder", Model.SortOrder == "lastname_desc" ? "lastname_asc" : "lastname_desc" }, { "Search", Model.Search } }, null)
             </th>
             <th>
-                Username
+                @Html.ActionLink("Username", "List", "Users", new RouteValueDictionary { { "SortOrder", Model.SortOrder == "username_desc" ? "username_asc" : "username_desc" }, { "Search", Model.Search } }, null)
             </th>    
             <th></th>
         </tr>
