@@ -141,11 +141,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Filters\AuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,6 +166,8 @@
     <Compile Include="Repositories\CitiesRepository.cs" />
     <Compile Include="Repositories\CountriesRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="ViewModels\AccountsVM\AccountLoginVM.cs" />
     <Compile Include="ViewModels\CitiesVM\CitiesEditVM.cs" />
     <Compile Include="ViewModels\CitiesVM\CitiesListVM.cs" />
     <Compile Include="ViewModels\CountriesVM\CountriesEditVM.cs" />
@@ -181,6 +185,7 @@
     <Content Include="Views\Countries\Edit.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -190,8 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Filters\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603251516241_init.resx">
