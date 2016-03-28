@@ -18,6 +18,11 @@ namespace ManagementSystem.Controllers
 
             model.Countries = new CountriesRepository().GetAll();
 
+            if (!string.IsNullOrEmpty(model.Search))
+            {
+                model.Countries = model.Countries.Where(c => c.Name.ToLower().Contains(model.Search)).ToList();
+            }
+
             switch (model.SortOrder)
             {
                 case "name_asc": model.Countries = model.Countries.OrderBy(c => c.Name).ToList(); break;

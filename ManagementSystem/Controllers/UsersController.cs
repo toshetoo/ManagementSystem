@@ -18,7 +18,11 @@ namespace ManagementSystem.Controllers
             TryUpdateModel(model);
 
             model.Users = new UsersRepository().GetAll();
-            
+
+            if (!string.IsNullOrEmpty(model.Search))
+            {
+                model.Users = model.Users.Where(u => u.FirstName.ToLower().Contains(model.Search) || u.LastName.ToLower().Contains(model.Search) || u.Username.ToLower().Contains(model.Search)).ToList();
+            }
 
             switch (model.SortOrder)
             {

@@ -8,6 +8,14 @@
     <p>
         @Html.ActionLink("Create New", "Edit")
     </p>
+
+@using (Html.BeginForm("List", "Cities", FormMethod.Get))
+{
+    <div>
+        Search: @Html.TextBoxFor(model => model.Search, new { @class = "form-control" })
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+}
     <table class="table">
         <tr>
             <th>

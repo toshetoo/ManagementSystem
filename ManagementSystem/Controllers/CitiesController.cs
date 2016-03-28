@@ -18,6 +18,11 @@ namespace ManagementSystem.Controllers
 
             model.Cities = new CitiesRepository().GetAll();
 
+            if (!string.IsNullOrEmpty(model.Search))
+            {
+                model.Cities = model.Cities.Where(c => c.Name.ToLower().Contains(model.Search) || c.PostCode.ToString().Contains(model.Search)).ToList();
+            }
+
             switch (model.SortOrder)
             {
                 case "name_asc": model.Cities = model.Cities.OrderBy(c => c.Name).ToList(); break;
