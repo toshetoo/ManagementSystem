@@ -179,6 +179,8 @@
     <Content Include="Views\Cities\List.cshtml" />
     <Content Include="Views\Cities\Edit.cshtml" />
     <Content Include="Views\Countries\Edit.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

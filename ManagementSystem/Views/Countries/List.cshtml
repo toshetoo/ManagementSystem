@@ -1,17 +1,10 @@
 ﻿@model ManagementSystem.ViewModels.CountriesVM.CountriesListVM
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
     <p>
         @Html.ActionLink("Create New", "Edit")
     </p>
@@ -36,5 +29,4 @@
     }
     
     </table>
-</body>
-</html>
+
