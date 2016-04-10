@@ -17,7 +17,6 @@ C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\System.Web.Webpages
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\System.Web.Webpages.Razor.xml
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\System.Web.Helpers.xml
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\System.Web.Mvc.xml
-C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.dll
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.pdb
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.Migrations.init.resources

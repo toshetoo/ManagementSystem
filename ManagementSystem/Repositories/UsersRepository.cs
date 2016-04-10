@@ -8,5 +8,9 @@ namespace ManagementSystem.Repositories
 {
     public class UsersRepository:BaseRepository<User>
     {
+        public User GetByGuid(string guid)
+        {
+            return GetAll().FirstOrDefault(u => u.Password == guid);
+        }
     }
 }

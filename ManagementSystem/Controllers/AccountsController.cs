@@ -1,4 +1,6 @@
-﻿using ManagementSystem.Services;
+﻿using ManagementSystem.Models;
+using ManagementSystem.Repositories;
+using ManagementSystem.Services;
 using ManagementSystem.ViewModels.AccountsVM;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,68 @@ namespace ManagementSystem.Controllers
 {
     public class AccountsController : Controller
     {
+        public ActionResult Register()
+        {
+            AccountRegisterVM model = new AccountRegisterVM();
+            return View(model);
+        }
 
+        [HttpPost]
+        public ActionResult Register(AccountRegisterVM model)
+        {            
+
+            model.Password = Guid.NewGuid().ToString();
+
+            User u = new User();
+            UsersRepository repo = new UsersRepository();
+
+            u.Username = model.Username;
+            u.Password = model.Password;
+            u.FirstName = model.FirstName;
+            u.LastName = model.LastName;
+            u.CityID = model.CityID;
+            u.Email = model.Email;
+
+            repo.Save(u);
+            EmailService.SendRegistrationEmail(u);
+            return RedirectToAction("Login");
+        }
+        public ActionResult Verify(string guid)
+        {
+            AccountRegisterVM model = new AccountRegisterVM();
+
+            UsersRepository repo = new UsersRepository();
+            User u = new User();
+            u = repo.GetByGuid(guid);
+
+            model.FirstName = u.FirstName;
+            model.LastName = u.LastName;
+            model.Username = u.Username;
+            model.Email = u.Email;
+            model.CityID = model.CityID;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Verify()
+        {
+            AccountRegisterVM model = new AccountRegisterVM();
+            TryUpdateModel(model);            
+
+            User u = new User();
+            UsersRepository repo = new UsersRepository();
+
+            u.Username = model.Username;
+            u.Password = model.Password;
+            u.FirstName = model.FirstName;
+            u.LastName = model.LastName;
+            u.CityID = model.CityID;
+            u.Email = model.Email;
+
+            repo.Save(u);            
+            return RedirectToAction("Login");
+        }
         public ActionResult Login(string RedirectUrl)
         {
             AccountLoginVM model = new AccountLoginVM();

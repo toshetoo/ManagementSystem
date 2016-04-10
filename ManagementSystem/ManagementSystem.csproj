@@ -113,6 +113,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mystyle.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -167,7 +168,9 @@
     <Compile Include="Repositories\CountriesRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="ViewModels\AccountsVM\AccountLoginVM.cs" />
+    <Compile Include="ViewModels\AccountsVM\AccountRegisterVM.cs" />
     <Compile Include="ViewModels\CitiesVM\CitiesEditVM.cs" />
     <Compile Include="ViewModels\CitiesVM\CitiesListVM.cs" />
     <Compile Include="ViewModels\CountriesVM\CountriesEditVM.cs" />
@@ -187,6 +190,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Accounts\Register.cshtml" />
+    <Content Include="Views\Accounts\Verify.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
