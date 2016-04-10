@@ -1,0 +1,6 @@
+DB exception - CityID missing - TO FIX
+Users email - TO FIX
+Views styles
+unitOfWork
+ServiceLayer
+Pagination

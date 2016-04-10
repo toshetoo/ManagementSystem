@@ -26,7 +26,7 @@ namespace ManagementSystem.Controllers
 
             User u = new User();
             UsersRepository repo = new UsersRepository();
-
+            
             u.Username = model.Username;
             u.Password = model.Password;
             u.FirstName = model.FirstName;
@@ -46,6 +46,7 @@ namespace ManagementSystem.Controllers
             User u = new User();
             u = repo.GetByGuid(guid);
 
+            model.ID = u.ID;
             model.FirstName = u.FirstName;
             model.LastName = u.LastName;
             model.Username = u.Username;
@@ -64,6 +65,7 @@ namespace ManagementSystem.Controllers
             User u = new User();
             UsersRepository repo = new UsersRepository();
 
+            u.ID = model.ID;
             u.Username = model.Username;
             u.Password = model.Password;
             u.FirstName = model.FirstName;

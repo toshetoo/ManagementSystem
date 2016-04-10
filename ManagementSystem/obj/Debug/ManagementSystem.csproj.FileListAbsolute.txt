@@ -29,3 +29,4 @@ C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\WebGrease.dll
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\Antlr3.Runtime.pdb
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\Newtonsoft.Json.xml
 C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\bin\System.Web.Optimization.xml
+C:\Users\user1\Desktop\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.csprojResolveAssemblyReference.cache
