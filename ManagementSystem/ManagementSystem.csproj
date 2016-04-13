@@ -166,9 +166,14 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\CitiesRepository.cs" />
     <Compile Include="Repositories\CountriesRepository.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\ModelServices\BaseService.cs" />
+    <Compile Include="Services\ModelServices\CitiesService.cs" />
+    <Compile Include="Services\ModelServices\CountriesService.cs" />
+    <Compile Include="Services\ModelServices\UsersService.cs" />
     <Compile Include="ViewModels\AccountsVM\AccountLoginVM.cs" />
     <Compile Include="ViewModels\AccountsVM\AccountRegisterVM.cs" />
     <Compile Include="ViewModels\CitiesVM\CitiesEditVM.cs" />

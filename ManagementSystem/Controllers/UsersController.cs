@@ -1,5 +1,6 @@
 ﻿using ManagementSystem.Models;
 using ManagementSystem.Repositories;
+using ManagementSystem.Services.ModelServices;
 using ManagementSystem.ViewModels;
 using ManagementSystem.ViewModels.UsersVM;
 using System;
@@ -17,7 +18,7 @@ namespace ManagementSystem.Controllers
             UsersListVM model = new UsersListVM();
             TryUpdateModel(model);
 
-            model.Users = new UsersRepository().GetAll();
+            model.Users = new UsersService().GetAll();
 
             if (!string.IsNullOrEmpty(model.Search))
             {
@@ -40,12 +41,12 @@ namespace ManagementSystem.Controllers
         public ActionResult Edit(int? id)
         {
             User user = new User();
-            UsersRepository userRepo = new UsersRepository();
+            UsersService userService = new UsersService();
             UsersEditVM model = new UsersEditVM();
 
             if (id.HasValue)
             {
-                user = userRepo.GetById(id.Value);
+                user = userService.GetById(id.Value);
                 if (user==null)
                 {
                     return RedirectToAction("List");
@@ -62,16 +63,23 @@ namespace ManagementSystem.Controllers
             model.Username = user.Username;
             model.Password = user.Password;
             model.CityID = user.CityID;
+            model.Email = user.Email;
 
             return View(model);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit()
         {
             UsersEditVM model = new UsersEditVM();
-            UsersRepository userRepo = new UsersRepository();
+            UsersService usersService = new UsersService();
             TryUpdateModel(model);
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
             User user;
             if (model.ID==0)
@@ -80,7 +88,7 @@ namespace ManagementSystem.Controllers
             }
             else
             {
-                user = userRepo.GetById(model.ID);
+                user = usersService.GetById(model.ID);
                 if (user == null)
                 {
                     return RedirectToAction("List");
@@ -93,19 +101,20 @@ namespace ManagementSystem.Controllers
             user.Password = model.Password;
             user.Username = model.Username;
             user.CityID = model.CityID;
+            user.Email = model.Email;
 
-            userRepo.Save(user);
+            usersService.Save(user);
 
             return RedirectToAction("List");
         }
 
         public ActionResult Delete(int? id)
-        {            
-            UsersRepository userRepo = new UsersRepository();
+        {
+            UsersService usersService = new UsersService();
 
             if (id.HasValue)
             {
-                userRepo.Delete(id.Value);
+                usersService.Delete(id.Value);
             }            
             return RedirectToAction("List");
         }

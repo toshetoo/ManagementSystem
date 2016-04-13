@@ -13,6 +13,7 @@ namespace ManagementSystem.Controllers
 {
     public class AccountsController : Controller
     {
+        [ValidateAntiForgeryToken]
         public ActionResult Register()
         {
             AccountRegisterVM model = new AccountRegisterVM();
@@ -20,6 +21,7 @@ namespace ManagementSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(AccountRegisterVM model)
         {            
 

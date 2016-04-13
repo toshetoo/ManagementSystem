@@ -57,12 +57,18 @@ namespace ManagementSystem.Controllers
             return View(model);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit()
         {
             CountriesEditVM model = new CountriesEditVM();
             CountriesService countriesService = new CountriesService();
 
             TryUpdateModel(model);
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
             Country country;
             if (model.ID!=0)

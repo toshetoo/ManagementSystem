@@ -36,7 +36,7 @@ namespace ManagementSystem.Controllers
 
             return View(model);
         }
-
+        
         public ActionResult Edit(int? id)
         {
             CitiesEditVM model = new CitiesEditVM();
@@ -62,6 +62,7 @@ namespace ManagementSystem.Controllers
             return View(model);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit()
         {
             CitiesEditVM model = new CitiesEditVM();
@@ -69,6 +70,11 @@ namespace ManagementSystem.Controllers
             City city;
 
             TryUpdateModel(model);
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
             if (model.ID==0)
             {
