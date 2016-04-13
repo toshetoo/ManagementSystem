@@ -8,5 +8,8 @@ namespace ManagementSystem.Repositories
 {
     public class CountriesRepository: BaseRepository<Country>
     {
+         public CountriesRepository() : base() { }
+
+         public CountriesRepository(UnitOfWork UnitOfWork) : base(UnitOfWork) { }
     }
 }

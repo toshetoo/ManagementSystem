@@ -7,16 +7,24 @@ using System.Web;
 
 namespace ManagementSystem.Repositories
 {
-    public abstract class BaseRepository<T> where T:BaseModel, new()
+    public class BaseRepository<T> where T:BaseModel, new()
     {
 
         private readonly DbSet<T> dbSet;
         private readonly ManagementSystemContext context;
+        protected UnitOfWork unitOfWork;
 
         public BaseRepository()
         {
             this.context = new ManagementSystemContext();
             this.dbSet = context.Set<T>();
+        }
+
+        public BaseRepository(UnitOfWork unitOfWork)
+        {
+            this.context = new ManagementSystemContext();
+            this.dbSet = context.Set<T>();
+            this.unitOfWork = unitOfWork;
         }
 
         public T GetById(int id)

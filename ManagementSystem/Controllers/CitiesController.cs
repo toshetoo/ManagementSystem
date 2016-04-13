@@ -1,5 +1,6 @@
 ﻿using ManagementSystem.Models;
 using ManagementSystem.Repositories;
+using ManagementSystem.Services.ModelServices;
 using ManagementSystem.ViewModels.CitiesVM;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace ManagementSystem.Controllers
             CitiesListVM model = new CitiesListVM();
             TryUpdateModel(model);
 
-            model.Cities = new CitiesRepository().GetAll();
+            model.Cities = new CitiesService().GetAll();
 
             if (!string.IsNullOrEmpty(model.Search))
             {
@@ -39,12 +40,12 @@ namespace ManagementSystem.Controllers
         public ActionResult Edit(int? id)
         {
             CitiesEditVM model = new CitiesEditVM();
-            CitiesRepository repo = new CitiesRepository();
+            CitiesService citiesService = new CitiesService();
             City city;
 
             if (id.HasValue)
             {
-                city = repo.GetById(id.Value);
+                city = citiesService.GetById(id.Value);
                 if (city == null)
                 {
                     return RedirectToAction("List");
@@ -64,7 +65,7 @@ namespace ManagementSystem.Controllers
         public ActionResult Edit()
         {
             CitiesEditVM model = new CitiesEditVM();
-            CitiesRepository repo = new CitiesRepository();
+            CitiesService citiesService = new CitiesService();
             City city;
 
             TryUpdateModel(model);
@@ -75,7 +76,7 @@ namespace ManagementSystem.Controllers
             }
             else
             {
-                city = repo.GetById(model.ID);
+                city = citiesService.GetById(model.ID);
                 if (city == null)
                 {
                     return RedirectToAction("List");
@@ -87,7 +88,7 @@ namespace ManagementSystem.Controllers
             city.Name = model.Name;
             city.PostCode = model.PostCode;
 
-            repo.Save(city);
+            citiesService.Save(city);
 
             return RedirectToAction("List");
 
@@ -97,7 +98,7 @@ namespace ManagementSystem.Controllers
         {
             if (id.HasValue)
             {
-                new CitiesRepository().Delete(id.Value);
+                new CitiesService().Delete(id.Value);
             }
             return RedirectToAction("List");
         }

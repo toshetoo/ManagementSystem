@@ -1,6 +1,7 @@
 ﻿using ManagementSystem.Models;
 using ManagementSystem.Repositories;
 using ManagementSystem.Services;
+using ManagementSystem.Services.ModelServices;
 using ManagementSystem.ViewModels.AccountsVM;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace ManagementSystem.Controllers
             model.Password = Guid.NewGuid().ToString();
 
             User u = new User();
-            UsersRepository repo = new UsersRepository();
+            UsersService usersService = new UsersService();
             
             u.Username = model.Username;
             u.Password = model.Password;
@@ -34,7 +35,7 @@ namespace ManagementSystem.Controllers
             u.CityID = model.CityID;
             u.Email = model.Email;
 
-            repo.Save(u);
+            usersService.Save(u);
             EmailService.SendRegistrationEmail(u);
             return RedirectToAction("Login");
         }
@@ -42,16 +43,16 @@ namespace ManagementSystem.Controllers
         {
             AccountRegisterVM model = new AccountRegisterVM();
 
-            UsersRepository repo = new UsersRepository();
+            UsersService usersService = new UsersService();
             User u = new User();
-            u = repo.GetByGuid(guid);
+            u = usersService.GetByGuid(guid);
 
             model.ID = u.ID;
             model.FirstName = u.FirstName;
             model.LastName = u.LastName;
             model.Username = u.Username;
             model.Email = u.Email;
-            model.CityID = model.CityID;
+            model.CityID = u.CityID;
 
             return View(model);
         }
@@ -63,7 +64,7 @@ namespace ManagementSystem.Controllers
             TryUpdateModel(model);            
 
             User u = new User();
-            UsersRepository repo = new UsersRepository();
+            UsersService usersService = new UsersService();
 
             u.ID = model.ID;
             u.Username = model.Username;
@@ -73,7 +74,7 @@ namespace ManagementSystem.Controllers
             u.CityID = model.CityID;
             u.Email = model.Email;
 
-            repo.Save(u);            
+            usersService.Save(u);            
             return RedirectToAction("Login");
         }
         public ActionResult Login(string RedirectUrl)

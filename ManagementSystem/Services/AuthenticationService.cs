@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using ManagementSystem.Models;
-using ManagementSystem.Repositories;
+using ManagementSystem.Services.ModelServices;
 
 namespace ManagementSystem.Services
 {
@@ -13,7 +10,7 @@ namespace ManagementSystem.Services
 
         public static void AuthenticateUser(string username, string password)
         {
-            LoggedUser = new UsersRepository().GetAll().FirstOrDefault(u => u.Username == username && u.Password == password);
+            LoggedUser = new UsersService().GetAll().FirstOrDefault(u => u.Username == username && u.Password == password);
         }
 
         public static void Logout()

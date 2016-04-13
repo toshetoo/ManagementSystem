@@ -1,6 +1,9 @@
-DB exception - CityID missing - TO FIX
-Users email - TO FIX
-Views styles
-unitOfWork
-ServiceLayer
+Validation - URGENT - regex and attributes - added but not working
 Pagination
+User groups
+User roles
+Show logged user contacts and phones
+Make the cityId show as string
+Send emails to many users
+modal for delete - confirmation
+Views styles

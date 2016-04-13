@@ -1,5 +1,6 @@
 ﻿using ManagementSystem.Models;
 using ManagementSystem.Repositories;
+using ManagementSystem.Services.ModelServices;
 using ManagementSystem.ViewModels.CountriesVM;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace ManagementSystem.Controllers
             CountriesListVM model = new CountriesListVM();
             TryUpdateModel(model);
 
-            model.Countries = new CountriesRepository().GetAll();
+            model.Countries = new CountriesService().GetAll();
 
             if (!string.IsNullOrEmpty(model.Search))
             {
@@ -35,12 +36,12 @@ namespace ManagementSystem.Controllers
         public ActionResult Edit(int? id)
         {
             CountriesEditVM model = new CountriesEditVM();
-            CountriesRepository repo = new CountriesRepository();
+            CountriesService countriesService = new CountriesService();
 
             Country country;
             if (id.HasValue)
             {
-                country = repo.GetById(id.Value);
+                country = countriesService.GetById(id.Value);
                 if (country==null)
                 {
                     return RedirectToAction("List");
@@ -59,14 +60,14 @@ namespace ManagementSystem.Controllers
         public ActionResult Edit()
         {
             CountriesEditVM model = new CountriesEditVM();
-            CountriesRepository repo = new CountriesRepository();
+            CountriesService countriesService = new CountriesService();
 
             TryUpdateModel(model);
 
             Country country;
             if (model.ID!=0)
             {
-                country = repo.GetById(model.ID);
+                country = countriesService.GetById(model.ID);
                 if (country==null)
                 {
                     return RedirectToAction("List");
@@ -81,18 +82,18 @@ namespace ManagementSystem.Controllers
             country.Name = model.Name;
             country.Cities = model.Cities;
 
-            repo.Save(country);
+            countriesService.Save(country);
 
             return RedirectToAction("List");
         }
 
         public ActionResult Delete(int? id)
         {
-            
-            CountriesRepository repo = new CountriesRepository();
+
+            CountriesService countriesService = new CountriesService();
             if (id.HasValue)
             {
-                repo.Delete(id.Value);                
+                countriesService.Delete(id.Value);                
             }
 
             return RedirectToAction("List");

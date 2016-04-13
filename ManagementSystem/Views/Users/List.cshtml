@@ -26,7 +26,10 @@
             </th>
             <th>
                 @Html.ActionLink("Username", "List", "Users", new RouteValueDictionary { { "SortOrder", Model.SortOrder == "username_desc" ? "username_asc" : "username_desc" }, { "Search", Model.Search } }, null)
-            </th>    
+            </th> 
+            <th>
+               Email
+            </th>     
             <th></th>
         </tr>
     
@@ -42,8 +45,8 @@
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>            
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>                      
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |                
                 @Html.ActionLink("Delete", "Delete", new { id=item.ID })

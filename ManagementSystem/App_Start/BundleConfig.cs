@@ -27,6 +27,9 @@ namespace ManagementSystem.App_Start
             bundles.Add(new ScriptBundle("~/Scripts/jquery")
                 .Include("~/Scripts/jquery-{version}.js")
                 );
+            bundles.Add(new ScriptBundle("~/Scripts/jqueryval").Include(
+                    "~/Scripts/jquery.validate*",
+                    "~/Scripts/jquery.unobtrusive*"));
         }
     }
 }
